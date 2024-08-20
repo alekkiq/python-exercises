@@ -35,7 +35,7 @@ def print_five_largest():
                 if index < 5:
                     five_largest.append(str(num))
 
-            print(f"The five largest numbers are {" ".join(five_largest)}")
+            print(f"The five largest numbers are {", ".join(five_largest)}")
 
             break
         else:
@@ -52,8 +52,24 @@ def prime_number():
 
     for num in numbers_to_test:
         if number % num == 0:
-            can_divide.append(num)
-            # print(f"Juu {num}")
+            can_divide.append(str(num))
+    
+    if len(can_divide) == 2:
+        print(f"The number {number} is a prime number.")
+    else:
+        print(f"The number {number} is not a prime number.\nIt is divisible by {", ".join(can_divide)}")
 
-    print(can_divide)
-prime_number()
+#   prime_number()
+
+# 4
+def print_cities():
+    cities = []
+
+    for i in range(5):
+        city = input("Input a city: ")
+        cities.append(city)
+
+    for city in cities:
+        print(city)
+
+#   print_cities()
