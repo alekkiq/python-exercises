@@ -2,35 +2,33 @@
 import math
 import random
 
-
-# Each "part" exercise is created as their
-# own function. Call a function to fire a
-# single part-exercise.
-
-
-def part_1():
+# 1
+def greet():
     name = input("What's your name? ")
     print(f"Hello {name}!")
 
-#   part_1()
+#   greet()
 
-def part_2():
+# 2
+def circle_area():
     radius = input("What's the circles radius? ")
     area = math.pi * math.pow(int(radius), 2)
     print(f"The circles area is {area}")
 
-#   part_2()
+#   circle_area()
 
-def part_3():
+# 3
+def rectangle_area():
     base = int(input("What's the rectangles base? "))
     height = int(input("And what is the rectangles height? "))
     area = base * height
     circuit = base * 2 + height * 2
     print(f"The rectangles area is {area}, and it's circuit is {circuit}")
 
-#   part_3()
+#   rectangle_area()
 
-def part_4():
+# 4
+def sum_average_product():
     numbers = input("Input 3 numbers. Please separate the numbers by a space.\n")
     numbers_array = numbers.split(' ')
 
@@ -50,9 +48,10 @@ def part_4():
     print(f"Product of numbers: {product}\n")
     print(f"Average of numbers: {round(average, 2)}")
 
-#   part_4()
+#   sum_average_product()
 
-def part_5():
+# 5
+def historic_units_to_kg():
     breads = int(input("How many breads: "))
     nails = int(input("How many nails: "))
     bullets = float(input("How many bullets: "))
@@ -65,9 +64,10 @@ def part_5():
 
     print(f"Weight in modern units: {kg_outcome}kg")
 
-#   part_5()
+#   historic_units_to_kg()
 
-def part_6():
+# 6
+def pin_generator():
     three_num_pin = ''
     four_num_pin = ''
 
@@ -80,4 +80,4 @@ def part_6():
     print(f"Three number code: {three_num_pin}")
     print(f"Four number code: {four_num_pin}")
 
-#   part_6()
+#   pin_generator()

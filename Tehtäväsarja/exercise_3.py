@@ -2,13 +2,8 @@
 import math
 import random
 
-
-# Each "part" exercise is created as their
-# own function. Call a function to fire a
-# single part-exercise.
-
-
-def part_1():
+# 1
+def calculate_legal_fish():
     zander_length = int(input("How long is the zander (cm)? "))
     allowed_length = 37 # centimeters
 
@@ -18,9 +13,10 @@ def part_1():
     else:
         print("The fish is allowed size! You are allowed to keep it.")
 
-#   part_1()
+#   calculate_legal_fish()
 
-def part_2():
+# 2
+def class_description():
     allowed_classes = ["LUX", "A", "B", "C"]
 
     cabin_class = str(input("What is your cabins class?\n").upper())
@@ -39,15 +35,17 @@ def part_2():
     else:
         print("Error! Cabin class not found. Try with another class.")
 
-#   part_2()
+#   class_description()
 
-def part_3():
+# 3
+def measure_hemoglobin():
     print()
     # this is an annoying one, skip
 
-#   part_3()
+#   measure_hemoglobin()
 
-def part_4():
+# 4
+def check_leap_year():
     year = int(input("Input a year: "))
 
     is_leap_year = year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
@@ -57,4 +55,4 @@ def part_4():
     else:
         print(f"The year {year} is not a leap year.")
 
-#   part_4()
+#   check_leap_year()
