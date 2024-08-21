@@ -1,0 +1,127 @@
+[
+    {
+        "name": "Los Angeles International Airport",
+        "icao": "KLAX",
+        "municipality": "Los Angeles"
+    },
+    {
+        "name": "Tokyo Haneda Airport",
+        "icao": "RJTT",
+        "municipality": "Tokyo"
+    },
+    {
+        "name": "Heathrow Airport",
+        "icao": "EGLL",
+        "municipality": "London"
+    },
+    {
+        "name": "Frankfurt Airport",
+        "icao": "EDDF",
+        "municipality": "Frankfurt"
+    },
+    {
+        "name": "Singapore Changi Airport",
+        "icao": "WSSS",
+        "municipality": "Singapore"
+    },
+    {
+        "name": "Sydney Kingsford Smith Airport",
+        "icao": "YSSY",
+        "municipality": "Sydney"
+    },
+    {
+        "name": "Dubai International Airport",
+        "icao": "OMDB",
+        "municipality": "Dubai"
+    },
+    {
+        "name": "Paris Charles de Gaulle Airport",
+        "icao": "LFPG",
+        "municipality": "Paris"
+    },
+    {
+        "name": "Beijing Capital International Airport",
+        "icao": "ZBAA",
+        "municipality": "Beijing"
+    },
+    {
+        "name": "Hong Kong International Airport",
+        "icao": "VHHH",
+        "municipality": "Hong Kong"
+    },
+    {
+        "name": "Amsterdam Schiphol Airport",
+        "icao": "EHAM",
+        "municipality": "Amsterdam"
+    },
+    {
+        "name": "Newark Liberty International Airport",
+        "icao": "KEWR",
+        "municipality": "Newark"
+    },
+    {
+        "name": "Toronto Pearson International Airport",
+        "icao": "CYYZ",
+        "municipality": "Toronto"
+    },
+    {
+        "name": "São Paulo Guarulhos International Airport",
+        "icao": "SBGR",
+        "municipality": "São Paulo"
+    },
+    {
+        "name": "Cape Town International Airport",
+        "icao": "FACT",
+        "municipality": "Cape Town"
+    },
+    {
+        "name": "Madrid-Barajas Airport",
+        "icao": "LEMD",
+        "municipality": "Madrid"
+    },
+    {
+        "name": "Moscow Sheremetyevo International Airport",
+        "icao": "UUEE",
+        "municipality": "Moscow"
+    },
+    {
+        "name": "Chicago O'Hare International Airport",
+        "icao": "KORD",
+        "municipality": "Chicago"
+    },
+    {
+        "name": "Incheon International Airport",
+        "icao": "RKSI",
+        "municipality": "Incheon"
+    },
+    {
+        "name": "Bangkok Suvarnabhumi Airport",
+        "icao": "VTBS",
+        "municipality": "Bangkok"
+    },
+    {
+        "name": "Mexico City International Airport",
+        "icao": "MMMX",
+        "municipality": "Mexico City"
+    },
+    {
+        "name": "Zurich Airport",
+        "icao": "LSZH",
+        "municipality": "Zurich"
+    },
+    {
+        "name": "Helsinki Vantaa Airport",
+        "icao": "EFHK",
+        "municipality": "Helsinki"
+    },
+    {
+        "name": "Vienna International Airport",
+        "icao": "LOWW",
+        "municipality": "Vienna"
+    },
+    {
+        "name": "Cairo International Airport",
+        "icao": "HECA",
+        "municipality": "Cairo"
+    }
+]
