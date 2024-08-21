@@ -1,3 +1,3 @@
 # 1
-def hello_word():
+def hello_world():
     print("Hello world, toimiiko GIT")
