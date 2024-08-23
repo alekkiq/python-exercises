@@ -16,7 +16,7 @@ def get_csv_headers(csv_file: str) -> list:
     
     return list(pd.read_csv(csv_file).columns)
     
-def get_csv_data(csv_file: str, chunksize: int = 1000) -> list:
+def get_csv_data(csv_file: str, chunksize: int = 500) -> list:
     '''
     Returns csv data without the header row as a list of chunks
     '''

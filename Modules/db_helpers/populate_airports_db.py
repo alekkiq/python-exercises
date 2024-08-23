@@ -2,13 +2,17 @@
 from db_helpers.data.airports_data_types import *
 from db_helpers.csv_helpers import *
 from db_helpers.mysql_helpers import *
+from Modules.db_helpers.db_config import db_config
 
 def populate_database(data_file: str, db_name: str = "my_database"):
     '''
     Fills the given database name with data in the *data_file* CSV file.
     '''
+    # get the database configuration from a config file
+    config = db_config()
+    
     # initialize the connection and create the database
-    db = db_connection("localhost", "root", "password", "utf8mb4_unicode_ci")
+    db = db_connection(config["host"], config["username"], config["password"], config["collation"])
     cursor = db.cursor()
     create_database(cursor, db_name)
     
@@ -28,5 +32,3 @@ def populate_database(data_file: str, db_name: str = "my_database"):
     # close the cursor & the database when ready
     cursor.close()
     db.close()
-
-# populate_database(get_file_path("airports.csv"), "airports")

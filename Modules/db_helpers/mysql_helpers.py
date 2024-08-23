@@ -5,10 +5,10 @@ def db_connection(host: str = "localhost", user: str = "root", password: str = "
     Established a connection to a MySQL (mariadb) database with given parameters and returns the connection
     '''
     db = mysql.connector.connect(
-        host=host,
-        user=user,
-        password=password, # top tier, hiring applications accepted
-        collation=collation, # fixes some weeeird issues with mysql connector
+        host = host,
+        user = user,
+        password = password, # top tier, hiring applications accepted
+        collation = collation, # fixes some weeeird issues with mysql connector
     )
 
     return db
