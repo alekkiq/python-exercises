@@ -8,6 +8,17 @@ Despite the task instructions being in Finnish, the coded solutions are strictly
 
 This README was made purely to serve as practice in documenting a project / codebase. Anyone with pretty much any experience with codebases or coding in general will get the idea just by looking at the directory structure as well as the singular files / scripts themselves.
 
+### Requirements
+
+To set up the "project" locally, you will need
+
+1. Python 3.12.x <
+2. MariaDB 11.5.x <
+
+And the following python packages:
+1. `mysql-connector-python`
+2. `pandas`
+
 ### Viewing / running the exercises
 
 The exercises will all be found under the ```Modules``` folder.
