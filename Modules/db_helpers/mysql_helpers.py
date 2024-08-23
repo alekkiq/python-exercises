@@ -17,7 +17,7 @@ def create_database(cursor: mysql.connector.cursor.MySQLCursor, database_name: s
     '''
     Creates an empty database and sets it as the active database
     '''
-    print(f"Creating database {database_name}...")
+    print(f"Creating database '{database_name}'...")
     
     try:
         cursor.execute(f"DROP DATABASE IF EXISTS {database_name};"),
@@ -27,13 +27,13 @@ def create_database(cursor: mysql.connector.cursor.MySQLCursor, database_name: s
         
         print(f"Successfully created database {database_name}")
     except Exception as error:
-        print(f"An error occurred while creating database {database_name}.\nError:\n{error}")
+        print(f"An error occurred while creating database '{database_name}'.\nError:\n{error}")
 
 def create_table(connection: mysql.connector.cursor.MySQLCursor, table_name: str = "my_table", column_names: list = [], column_data_types: dict = {}):
     '''
     Creates a table in the *connection* database with the given column names and data types
     '''
-    print(f"Creating table {table_name}...")
+    print(f"Creating table '{table_name}'...")
     
     create_table_statement = f"CREATE TABLE {table_name} (\n"
     
@@ -44,9 +44,9 @@ def create_table(connection: mysql.connector.cursor.MySQLCursor, table_name: str
     try:
         connection.execute(create_table_statement.rstrip(",\n") + "\n);")
         
-        print(f"Successfully created table {table_name}")
+        print(f"Successfully created table '{table_name}'")
     except Exception as error:
-        print(f"An error occurred while trying to create table {table_name}\nError:\n{error}")
+        print(f"An error occurred while trying to create table '{table_name}'\nError:\n{error}")
         
 def insert_data_to_table(connection: mysql.connector.cursor.MySQLCursor, table_name: str, data: list, column_names: list, chunksize: int):
     '''
@@ -71,7 +71,7 @@ def insert_data_to_table(connection: mysql.connector.cursor.MySQLCursor, table_n
             
             connection.execute(final_statement, chunk_values)
         
-        print(f"Successfully populated table {table_name}")
+        print(f"Successfully populated table '{table_name}'")
     except Exception as error:
-        print(f"An error occurred while trying to populate table {table_name}\nError:\n{error}")
+        print(f"An error occurred while trying to populate table '{table_name}'\nError:\n{error}")
     
