@@ -2,7 +2,7 @@
 from db_helpers.data.airports_data_types import *
 from db_helpers.csv_helpers import *
 from db_helpers.mysql_helpers import *
-from Modules.db_helpers.db_config import db_config
+from db_helpers.db_config import db_config
 
 def populate_database(data_file: str, db_name: str = "my_database"):
     '''
@@ -10,9 +10,10 @@ def populate_database(data_file: str, db_name: str = "my_database"):
     '''
     # get the database configuration from a config file
     config = db_config()
+    connection_params = config["connection_params"]
     
     # initialize the connection and create the database
-    db = db_connection(config["host"], config["username"], config["password"], config["collation"])
+    db = db_connection(connection_params["host"], connection_params["username"], connection_params["password"], connection_params["collation"])
     cursor = db.cursor()
     create_database(cursor, db_name)
     
