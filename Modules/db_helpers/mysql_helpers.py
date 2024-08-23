@@ -17,6 +17,7 @@ def create_database(cursor: mysql.connector.cursor.MySQLCursor, database_name: s
     '''
     Creates an empty database and sets it as the active database
     '''
+    print(f"Creating database {database_name}...")
     
     try:
         cursor.execute(f"DROP DATABASE IF EXISTS {database_name};"),
@@ -32,6 +33,7 @@ def create_table(connection: mysql.connector.cursor.MySQLCursor, table_name: str
     '''
     Creates a table in the *connection* database with the given column names and data types
     '''
+    print(f"Creating table {table_name}...")
     
     create_table_statement = f"CREATE TABLE {table_name} (\n"
     
@@ -50,6 +52,7 @@ def insert_data_to_table(connection: mysql.connector.cursor.MySQLCursor, table_n
     '''
     Inserts data into the given database table in *chunksize* sized chunks. The function expects, that the connection is already connected to a database
     '''
+    print(f"Populating '{table_name}'...")
     
     column_names_stringified = ",".join(column_names)
     placeholders = ",".join("%s" for _ in column_names)
@@ -64,7 +67,7 @@ def insert_data_to_table(connection: mysql.connector.cursor.MySQLCursor, table_n
                 placeholders_list.append(f"({placeholders})")
                 chunk_values.extend(row)
                 
-            final_statement = insert_data_statement + ', '.join(placeholders_list)
+            final_statement = insert_data_statement + ','.join(placeholders_list)
             
             connection.execute(final_statement, chunk_values)
         
