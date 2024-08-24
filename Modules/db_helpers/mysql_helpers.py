@@ -1,14 +1,16 @@
 import mysql.connector
 
-def db_connection(host: str = "localhost", user: str = "root", password: str = "", collation: str = "utf8"):
+def db_connection(connection_params: dict = {...}):
     '''
     Established a connection to a MySQL (mariadb) database with given parameters and returns the connection
     '''
     db = mysql.connector.connect(
-        host = host,
-        user = user,
-        password = password, # top tier, hiring applications accepted
-        collation = collation, # fixes some weeeird issues with mysql connector
+        host = connection_params["host"],
+        user = connection_params["username"],
+        password = connection_params["password"], # top tier, hiring applications accepted
+        collation = connection_params["collation"], # fixes some weeeird issues with mysql connector
+        autocommit = connection_params["autocommit"],
+        database = connection_params["database"] if isinstance(connection_params["database"], str) else None
     )
 
     return db

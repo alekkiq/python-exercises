@@ -9,7 +9,9 @@ def db_config() -> dict:
             "host": "localhost",
             "username": "root",
             "password": "password",
-            "collation": "utf8mb4_unicode_ci"
+            "collation": "utf8mb4_unicode_ci",
+            "database": "airports",
+            "autocommit": False
         },
         # database_keys for database-specific params
         "database_keys": {

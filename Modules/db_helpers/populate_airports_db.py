@@ -13,7 +13,7 @@ def populate_database(data_file: str, db_name: str = "my_database"):
     connection_params = config["connection_params"]
     
     # initialize the connection and create the database
-    db = db_connection(connection_params["host"], connection_params["username"], connection_params["password"], connection_params["collation"])
+    db = db_connection(connection_params)
     cursor = db.cursor()
     create_database(cursor, db_name)
     
@@ -22,12 +22,13 @@ def populate_database(data_file: str, db_name: str = "my_database"):
     column_data_types = airports_data_types_sql()
     
     # create the table with the correct column names / data types
-    create_table(cursor, "airports", column_names, column_data_types)
+    table_name = "airport"
+    create_table(cursor, table_name, column_names, column_data_types)
     
     # continue to inserting the data itself.
     data_chunksize = 500
     data = get_csv_data(data_file, data_chunksize)
-    insert_data_to_table(cursor, "airports", data, column_names, data_chunksize)
+    insert_data_to_table(cursor, table_name, data, column_names, data_chunksize)
     db.commit()
     
     # close the cursor & the database when ready
