@@ -4,9 +4,9 @@
 
 These Python exercises act as a part of my first year studies in my engineering degree.
 
-Despite the task instructions being in Finnish, the coded solutions are strictly in English, due to the English nature of the profession that is programming.
+Despite the task instructions being in Finnish, the coded solutions are strictly in English, due to the English nature of the profession that is software development.
 
-This README was made purely to serve as practice in documenting a project / codebase. Anyone with pretty much any experience with codebases or coding in general will get the idea just by looking at the directory structure as well as the singular files / scripts themselves.
+This README was made purely to serve as practice in documenting a project / codebase. Anyone with pretty much any experience with codebases or coding in general will get the idea just by looking at the directory structure as well as the singular files / scripts themselves (hopefully).
 
 ### Requirements
 
@@ -14,10 +14,18 @@ To set up the "project" locally, you will need
 
 1. Python 3.12.x <
 2. MariaDB 11.5.x <
+3. ```airports.csv``` with correct data
 
 And the following python packages:
 1. `mysql-connector-python`
 2. `pandas`
+3. `geopy`
+
+<div style="color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb; padding: 16px 24px; border-radius: 5px; margin-block: 20px; line-height: 1.75">
+<b>Important:</b> Make sure to add the proper values in <code style="color: black; padding: 4px 6px">Modules/db_helpers/db_config.py</code> to match your systems MariaDB configs. You also have to add the <code style="color: black; padding: 4px 6px">airports.csv</code> to <code style="color: black; padding: 4px 6px">Modules/db_helpers/data/</code> if you do not already have the right database set up in your computer. Alternatively, you can insert the data manually to the right database.
+</div>
 
 ### Viewing / running the exercises
 
