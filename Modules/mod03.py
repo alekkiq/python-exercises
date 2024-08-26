@@ -39,9 +39,27 @@ def class_description():
 
 # 3
 def measure_hemoglobin():
-    print()
-    # this is an annoying one, skip
+    hg_values = {
+        "male": {
+            "minimum": 134,
+            "maximum": 175
+        },
+        "female": {
+            "minimum": 117,
+            "maximum": 175
+        }
+    }
 
+    gender = input("Gender (male / female): ")
+    hemoglobin_value = int(input("Hemoglobin value (g/l): "))
+
+    if hg_values[gender]["minimum"] <= hemoglobin_value <= hg_values[gender]["minimum"]:
+        print("Hemoglobin value is within the normal range.")
+    elif hg_values[gender]["minimum"] > hemoglobin_value:
+        print("Hemoglobin value is lower than the standard.")
+    else:
+        print("Hemoglobin value is higher than the standard.")
+    
 #   measure_hemoglobin()
 
 # 4
