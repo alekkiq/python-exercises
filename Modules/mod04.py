@@ -4,7 +4,7 @@ import random
 
 
 # 1
-def print_divisble_by_three():
+def print_divisible_by_three():
     i = 1
     while i < 1000:
         if i % 3 == 0:
