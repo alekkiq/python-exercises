@@ -21,8 +21,9 @@ def get_csv_data(csv_file: str, chunksize: int = 500) -> list:
     Returns csv data without the header row as a list of chunks
     '''
     
-    df = pd.read_csv(csv_file, delimiter=',', skiprows=1, encoding="utf-8")
-    list_of_rows = [list(row) for row in df.values]
+    df = pd.read_csv(csv_file, delimiter=',', header=1, encoding="utf-8")
+    parsed_data = df.fillna(0) # replaces nan values with 0
+    list_of_rows = [list(row) for row in parsed_data.values]
     
     # split the rows into reasonable chunks
     # this will be necessary since sql does not allow

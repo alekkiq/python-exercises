@@ -50,9 +50,9 @@ def create_table(connection: mysql.connector.cursor.MySQLCursor, table_name: str
     except Exception as error:
         print(f"An error occurred while trying to create table '{table_name}'\nError:\n{error}")
         
-def insert_data_to_table(connection: mysql.connector.cursor.MySQLCursor, table_name: str, data: list, column_names: list, chunksize: int):
+def insert_data_to_table(connection: mysql.connector.cursor.MySQLCursor, table_name: str, data: list, column_names: list):
     '''
-    Inserts data into the given database table in *chunksize* sized chunks. The function expects, that the connection is already connected to a database
+    Inserts data into the given database table in sized chunks. The function expects, that the connection is already connected to a database
     '''
     print(f"Populating '{table_name}'...")
     
@@ -69,11 +69,10 @@ def insert_data_to_table(connection: mysql.connector.cursor.MySQLCursor, table_n
                 placeholders_list.append(f"({placeholders})")
                 chunk_values.extend(row)
                 
-            final_statement = insert_data_statement + ','.join(placeholders_list)
+            final_statement = insert_data_statement + ",".join(placeholders_list)
             
             connection.execute(final_statement, chunk_values)
         
         print(f"Successfully populated table '{table_name}'")
-    except Exception as error:
-        print(f"An error occurred while trying to populate table '{table_name}'\nError:\n{error}")
-    
+    except mysql.connector.Error as error:
+        print(f"An error occurred while trying to populate table '{table_name}'\nError:\n{format(error)}")

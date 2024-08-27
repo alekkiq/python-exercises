@@ -28,7 +28,7 @@ def populate_database(data_file: str, db_name: str = "my_database"):
     # continue to inserting the data itself.
     data_chunksize = 500
     data = get_csv_data(data_file, data_chunksize)
-    insert_data_to_table(cursor, table_name, data, column_names, data_chunksize)
+    insert_data_to_table(cursor, table_name, data, column_names)
     db.commit()
     
     # close the cursor & the database when ready
