@@ -3,6 +3,8 @@
 # the Elevator class. So the "exercise" in this file
 # is essentially just exercise 3.
 
+import random
+
 # needed in exercise 4
 from mod09 import Car
 
@@ -20,24 +22,18 @@ class Elevator:
         return current_floor - 1
     
     def change_floor(self, destination: int):
-        print(f"change_floor, current floor: {self.current_floor}. Changing to {destination}")
         '''
         Changes the Elevators floor to a given *destination*.
         '''
 
-        if destination == self.lowest_floor:
-            self.current_floor = destination
-
         if destination > self.highest_floor or destination < self.lowest_floor or destination < 0:
             return print("Invalid floor number.")
-        
-        for floor in range(self.current_floor, destination):
+       
+        for floor in range(self.current_floor, destination, (-1 if self.current_floor > destination else 1)):
             if self.current_floor > destination:
                 self.current_floor = self.floor_down(floor)
             elif self.current_floor < destination:
                 self.current_floor = self.floor_up(floor)
-                
-        print(f"change_floor floor after changing; {self.current_floor}")        
 
 class Building:
     def __init__(self, highest_floor: int = 1, lowest_floor: int = 0, elevator_count: int = 1):
@@ -66,11 +62,14 @@ class Building:
             elevator.change_floor(self.lowest_floor)
         
 
-def main():
+def elevator_main():
     building = Building(10, 1, 5)
 
+    # fire alarm will occur after 1-7 moves of an elevator
+    moves_before_alarm = random.randint(1, 7)
+
     # loop for just moving around with elevators
-    while (True):
+    while moves_before_alarm >= 0:
         chosen_elevator_number = int(input(f"The house has {building.elevator_count} elevators. Which one to use: "))
 
         chosen_elevator = building.elevators[chosen_elevator_number - 1]
@@ -83,4 +82,49 @@ def main():
         
         print(f"Elevator {chosen_elevator.product_number}, current floor {chosen_elevator.current_floor}")
 
-main()
+        moves_before_alarm -= 1
+    
+    building.fire_alarm()
+
+    for elevator in building.elevators:
+        print(f"Elevator {elevator.product_number} moved to bottom floor {building.lowest_floor}")
+
+    print("There was a fire alarm. All elevators moved to the bottom floor. Everyone must leave the building immediately!")
+
+#   elevator_main()
+
+
+# 4
+class Race:
+    def __init__(self, name: str = "Race", length: float = 10, cars: list = [...]):
+        self.name = name
+        self.length = length
+        self.cars = cars
+
+    def hour_passes():
+        print()
+    
+    def get_race_state():
+        print()
+
+    def race_over(self) -> bool:
+        for car in self.cars:
+            if car.distance_driven >= self.length:
+                return True
+        return False
+    
+def race_main():
+    cars = []
+
+    for i in range(1, 11): # create 10 cars 1-10
+        speed = random.randint(100, 200)
+        car = Car(f"ABC-{i}", speed)
+        car.accelerate(random.randint(-10, 15))
+        cars.append(car)
+
+    race = Race("The grand scrap race", 8000, cars)
+
+    while not race.race_over():
+        # TODO
+
+#race_main()
