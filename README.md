@@ -25,11 +25,13 @@ To set up the "project" locally, you will need
 ...
 ```
 
-And the following python packages:
-1. `mysql-connector-python`
-2. `pandas`
-3. `geopy`
-4. `tabulate`
+The following python packages:
+1. `mysql-connector-python` - MariaDB connector
+2. `pandas` - CSV reader
+3. `geopy` - location distance calculation
+4. `tabulate` - table format printing
+5. `requests` - API requests
+6. `python-dotenv` - Module 12 OpenWeather API key
 
 <div style="color: #0c5460;
   background-color: #d1ecf1;
