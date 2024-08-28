@@ -77,8 +77,8 @@ def login_guess():
             print("You used all your tries. Try again later")
             break
 
-        username = str(input("Username: "))
-        password = str(input("Password: "))
+        username = input("Username: ")
+        password = input("Password: ")
 
         if username == correct_username and password == correct_password:
             print("Welcome!")
@@ -90,6 +90,21 @@ def login_guess():
 #   login_guess()
 
 # 6
-def pi_floating_point():
-    print("Mitä vittua?")
-    # TODO
+def pi_floating_point(points: int):
+    circle_inside = 0
+    i = 0
+    
+    while i <= points:
+        x = random.uniform(-1, 1)
+        y = random.uniform(-1, 1)
+        
+        if x ** 2 + y ** 2 < 1:
+            circle_inside += 1
+        
+        i += 1
+            
+    print(4 * (circle_inside / points))
+    
+#   pi_floating_point(5)        # 4.8
+#   pi_floating_point(1000)     # 3.228
+#   pi_floating_point(1000000)  # 3.142676
