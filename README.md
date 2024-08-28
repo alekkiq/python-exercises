@@ -31,7 +31,8 @@ The following python packages:
 3. `geopy` - location distance calculation
 4. `tabulate` - table format printing
 5. `requests` - API requests
-6. `python-dotenv` - Module 12 OpenWeather API key
+6. `python-dotenv` - environment value handling (Module 12 OpenWeather API key)
+7. `Flask` - building an API
 
 <div style="color: #0c5460;
   background-color: #d1ecf1;
