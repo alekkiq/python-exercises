@@ -1,28 +1,14 @@
-# the 2. part of this module modifies the 
-
+import random
 
 # 1
-class Release:
-    def __init__(self, name: str = ""):
-        self.name = name
-        
-class Book(Release):
-    def __init__(self, name: str = "", author: str = "", pages: int = 0):
-        self.author = author
-        self.pages = pages
-        super().__init__(name)
-        
-    def get_information(self):
-        return print(f"Book '{self.name}', author: '{self.author}', number of pages: {self.pages}")
-        
-class Paper(Release):
-    def __init__(self, name: str = "", chief_reporter: str = ""):
-        self.chief_reporter = chief_reporter
-        super().__init__(name)
-    
-    def get_information(self):
-        return print(f"Paper '{self.name}', chief reporter: '{self.chief_reporter}'")
+from Classes.Release_SubClasses.Paper import Paper
+from Classes.Release_SubClasses.Book import Book
 
+# 2
+from Classes.Car_SubClasses.Electric import Electric
+from Classes.Car_SubClasses.Combustion import Combustion
+
+# 1
 def releases_main():
     releases = [
         Paper("Aku Ankka", "Aki Hyyppä"),
@@ -33,3 +19,21 @@ def releases_main():
         release.get_information()
         
 #   releases_main()
+
+
+# 2
+def cars_main(randomized_speeds: bool = False):
+    print("\n")
+    cars = [
+        Electric("ABC-15", 180, 0, 52.5),
+        Combustion("ACD-123", 180, 0, 32.3)
+    ]
+    
+    for car in cars:
+        if randomized_speeds:
+            car.accelerate(random.randint(-30, 30)) # for some variety
+        car.drive(3)
+        print(f"Car {car.registration_number} distance driven after at {car.speed} km/h for 1 hour: {car.distance_driven}")
+        
+#   cars_main(False)
+#   cars_main(True)
