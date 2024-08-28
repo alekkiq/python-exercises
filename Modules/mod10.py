@@ -4,6 +4,8 @@
 # is essentially just exercise 3.
 
 import random
+import string
+from tabulate import tabulate
 
 # needed in exercise 4
 from mod09 import Car
@@ -22,10 +24,6 @@ class Elevator:
         return current_floor - 1
     
     def change_floor(self, destination: int):
-        '''
-        Changes the Elevators floor to a given *destination*.
-        '''
-
         if destination > self.highest_floor or destination < self.lowest_floor or destination < 0:
             return print("Invalid floor number.")
        
@@ -94,6 +92,9 @@ def elevator_main():
 #   elevator_main()
 
 
+
+
+
 # 4
 class Race:
     def __init__(self, name: str = "Race", length: float = 10, cars: list = [...]):
@@ -101,30 +102,59 @@ class Race:
         self.length = length
         self.cars = cars
 
-    def hour_passes():
-        print()
-    
-    def get_race_state():
-        print()
-
-    def race_over(self) -> bool:
+    def get_race_state(self, sort: bool = False):
+        headers = ["Registration", "Speed", "Distance driven (km)"]
+        data = []
+        
         for car in self.cars:
+            data.append([car.registration_number, f"{car.speed} km/h", car.distance_driven])
+        
+        if sort == True: # sorting on
+            data = sorted(data, key=lambda x: x[2], reverse=True)
+            
+        return print(tabulate(data, headers=headers, tablefmt="grid"))
+    
+    def hour_passes(self):
+        for car in self.cars:
+            car.accelerate(random.randint(-10, 15))
+            car.drive(1) # 1 -> 1 hour
+
+    def race_over(self) -> dict:
+        sorted_cars = sorted(list(self.cars), key=lambda car: car.distance_driven, reverse=True)
+        
+        for car in sorted_cars:
             if car.distance_driven >= self.length:
-                return True
-        return False
+                return {"state": True, "winning_car": car.registration_number}
+        return {"state": False}
     
 def race_main():
     cars = []
-
+    
     for i in range(1, 11): # create 10 cars 1-10
         speed = random.randint(100, 200)
-        car = Car(f"ABC-{i}", speed)
-        car.accelerate(random.randint(-10, 15))
+        registration = f"{''.join(random.choice(string.ascii_letters).upper() for _ in range(3))}-{random.randint(1, 9)}"
+        car = Car(registration, speed)
+        car.accelerate(random.randint(-10, 15)) # set the cars initial speed
         cars.append(car)
-
+            
     race = Race("The grand scrap race", 8000, cars)
+    
+    print("Starting statistics:\n")
+    race.get_race_state()
+    
+    # track the hours driven
+    hours_driven = 0
 
-    while not race.race_over():
-        # TODO
-
-#race_main()
+    while not race.race_over()["state"]:
+        race.hour_passes()
+        hours_driven += 1
+        
+        print("---------------------------------------")
+        print(f"\nStatistics after {hours_driven} hours driven:\n")
+        race.get_race_state()
+        
+    print(f"\nThe race is over. Car {race.race_over()["winning_car"]} has won!")
+    print(f"\nThe final standings:\n")
+    race.get_race_state(sort=True)
+    
+#   race_main()
