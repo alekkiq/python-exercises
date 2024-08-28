@@ -12,14 +12,24 @@ This README was made purely to serve as practice in documenting a project / code
 
 To set up the "project" locally, you will need
 
-1. Python 3.12.x <
-2. MariaDB 11.5.x <
-3. ```airports.csv``` with correct data
+1. **Python** 3.12.x <
+2. **MariaDB** 11.5.x <
+3. ```airports.csv``` with correct data as in this example:
+
+```json
+"id","ident","type","name","latitude_deg","longitude_deg","elevation_ft","continent","iso_country","iso_region","municipality","scheduled_service","gps_code","iata_code","local_code","home_link","wikipedia_link","keywords"
+6523,"00A","heliport","Total Rf Heliport",40.07080078125,-74.93360137939453,11,"NA","US","US-PA","Bensalem","no","00A",,"00A",,,
+323361,"00AA","small_airport","Aero B Ranch Airport",38.704022,-101.473911,3435,"NA","US","US-KS","Leoti","no","00AA",,"00AA",,,
+6524,"00AK","small_airport","Lowell Field",59.947733,-151.692524,450,"NA","US","US-AK","Anchor Point","no","00AK",,"00AK",,,
+
+...
+```
 
 And the following python packages:
 1. `mysql-connector-python`
 2. `pandas`
 3. `geopy`
+4. `tabulate`
 
 <div style="color: #0c5460;
   background-color: #d1ecf1;
@@ -81,6 +91,6 @@ main() # <-- The exercise runs when main() is called.
 ___________________
 ### What I've learned?
 
-1. **Python** - duh. But being serious, prior to this course I had next to no experience with python, but a better understanding in other languages such as Php, Javascript and even Java. Like always, switching to a new language and syntax can be hard, but I believe I actually overcame that surprisingly quick.
+1. **Python** - duh. But being serious, prior to this course I had next to no experience with python, but a better understanding in other languages such as Php, Javascript and even Java. Like always, switching to a new language and syntax can be overwhelming, but I believe I actually overcame that surprisingly quick.
 2. **Problem solving**. It is common knowledge that coding is pretty much all about solving problems, and I think this course capsulated it well. The theory parts were exhausting, but rather had a lot of useful info in a very compact package. This made reading through the theory a lot less exhaustive.
 3. **Thinking**. At first glance this might sound odd, but it makes perfect sense. During these excersises I occasionally found myself overcomplicating even the most simplest of problems. But as I progressed in the tasks, I gradually learned to stop and think about alternative solutions and their pros&cons before writing any lines of code.
