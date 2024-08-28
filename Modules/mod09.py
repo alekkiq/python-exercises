@@ -1,25 +1,6 @@
 import random
 
-
-# 1
-class Car:
-    def __init__(self, registration_number: str | int = 0, speed: int = 0, distance_driven: int = 0):
-        self.registration_number = registration_number
-        self.speed = speed
-        self.distance_driven = distance_driven
-    
-    def accelerate(self, change: int = 0) -> int:
-        if self.speed + change <= 0:
-            return 0 # avoid negative speeds
-        self.speed += change
-        return self.speed
-    
-    def drive(self, time: float = 0) -> int:
-        if time <= 0:
-            return
-        self.distance_driven += self.speed * time
-        return int(self.distance_driven)
-
+from Classes.Car import Car
 
 # 1 - 3    
 def exercises():
@@ -71,4 +52,4 @@ def car_race(cars_amount: int = 10, race_time: float = 1):
     for car in cars:
         print(f"Car {car.registration_number}, Speed: {car.speed}km/h, Distance driven: {car.distance_driven}km")
 
-#   car_race()
+car_race()
