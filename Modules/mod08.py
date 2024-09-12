@@ -90,4 +90,4 @@ def get_airport_gap():
 
     print(f"Distance between airports {queried_airports[0]["ident"]} - {queried_airports[1]["ident"]}:\nApproximately {int(distance.distance(airport_one_coordinates, airport_two_coordinates).km)} kilometers")
     
-get_airport_gap()
+#    get_airport_gap()
