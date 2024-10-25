@@ -11,7 +11,7 @@ class Car:
         
         self.speed += change
 
-        if self.speed > self.top_speed:
+        if self.speed >= self.top_speed:
             self.speed = self.top_speed
 
         return self.speed

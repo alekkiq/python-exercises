@@ -50,6 +50,6 @@ def car_race(cars_amount: int = 10, race_time: float = 1):
     # get the car stats
     print("Car statistics:\n")
     for car in cars:
-        print(f"Car {car.registration_number}, Speed: {car.speed}km/h, Distance driven: {car.distance_driven}km")
+        print(f"Car {car.registration_number} \tSpeed: {car.speed}km/h \tDistance driven: {car.distance_driven}km")
 
 car_race()
