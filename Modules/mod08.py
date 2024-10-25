@@ -38,7 +38,7 @@ def get_airport_by_icao():
 def get_countries_by_iso_country():
     sql_query = "SELECT type, COUNT(*) AS typecount FROM airport WHERE iso_country = '%s' GROUP BY type ORDER BY typecount DESC;"
     
-    database_config = db_config()
+    database_config = db_config() # <-- Update your own proper values before running!
     db = db_connection(database_config["connection_params"])
     cursor = db.cursor(dictionary=True)
     
@@ -90,4 +90,4 @@ def get_airport_gap():
 
     print(f"Distance between airports {queried_airports[0]["ident"]} - {queried_airports[1]["ident"]}:\nApproximately {int(distance.distance(airport_one_coordinates, airport_two_coordinates).km)} kilometers")
     
-get_airport_gap()
+#    get_airport_gap()
