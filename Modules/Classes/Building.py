@@ -5,12 +5,15 @@ class Building:
         self.highest_floor = highest_floor
         self.lowest_floor = lowest_floor
         self.elevator_count = elevator_count
-        self.elevators = []
+        self.elevators = self.create_elevators(elevator_count)
 
-        if elevator_count > 0:
-            for i in range(1, self.elevator_count + 1):
-                elevator = Elevator(self.lowest_floor, self.highest_floor, self.lowest_floor, f"EL{i}")
-                self.elevators.append(elevator)     
+    def create_elevators(self, count):
+        elevators = []
+        for i in range(1, count + 1):
+            elevator = Elevator(self.lowest_floor, self.highest_floor, self.lowest_floor, f"EL{i}")
+            elevators.append(elevator)
+        
+        return elevators
 
     def move_elevator(self, elevator_number: int, destination: int = 0):
         if elevator_number > len(self.elevators) or elevator_number <= 0:

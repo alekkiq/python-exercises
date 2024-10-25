@@ -63,7 +63,6 @@ def race_main():
         hours_driven += 1
         
         if hours_driven % 10 == 0:
-            print("---------------------------------------")
             print(f"\nStatistics after {hours_driven} hours driven:\n")
             race.get_race_state()
         
