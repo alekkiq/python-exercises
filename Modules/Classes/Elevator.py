@@ -15,7 +15,7 @@ class Elevator:
         if destination > self.highest_floor or destination < self.lowest_floor or destination < 0:
             return print("Invalid floor number.")
        
-        for floor in range(self.current_floor, destination, (-1 if self.current_floor > destination else 1)):
+        for floor in range(self.current_floor, destination, -1 if self.current_floor > destination else 1):
             if self.current_floor > destination:
                 self.current_floor = self.floor_down(floor)
             elif self.current_floor < destination:

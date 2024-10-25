@@ -62,9 +62,10 @@ def race_main():
         race.hour_passes()
         hours_driven += 1
         
-        print("---------------------------------------")
-        print(f"\nStatistics after {hours_driven} hours driven:\n")
-        race.get_race_state()
+        if hours_driven % 10 == 0:
+            print("---------------------------------------")
+            print(f"\nStatistics after {hours_driven} hours driven:\n")
+            race.get_race_state()
         
     print(f"\nThe race is over after {hours_driven} hours driven. Car {race.race_over()["winning_car"]} has won!")
     print(f"\nThe final standings:\n")
