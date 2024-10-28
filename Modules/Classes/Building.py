@@ -10,7 +10,7 @@ class Building:
     def create_elevators(self, count):
         elevators = []
         for i in range(1, count + 1):
-            elevator = Elevator(self.lowest_floor, self.highest_floor, self.lowest_floor, f"EL{i}")
+            elevator = Elevator(self.highest_floor, self.lowest_floor, f"EL{i}")
             elevators.append(elevator)
         
         return elevators

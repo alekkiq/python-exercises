@@ -1,9 +1,10 @@
 class Elevator:
-    def __init__(self, current_floor: int = 1, highest_floor: int = 1, lowest_floor: int = 0, product_number: str = ""):
+    def __init__(self, highest_floor: int = 1, lowest_floor: int = 0, product_number: str = ""):
         self.product_number = product_number
         self.highest_floor = highest_floor
         self.lowest_floor = lowest_floor
-        self.current_floor = current_floor
+        
+        self.current_floor = lowest_floor
 
     def floor_up(self, current_floor: int):
         return current_floor + 1

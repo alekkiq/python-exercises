@@ -1,12 +1,12 @@
 from Classes.Car import Car
 
 class Combustion(Car):
-    def __init__(self, registration_number: str = "", speed: int = 0, distance_driven: int = 0, gas_capacity: float = 0):
+    def __init__(self, registration_number: str, top_speed: int, gas_capacity: float = 0):
         self.gas_capacity = gas_capacity
-        super().__init__(registration_number, speed, distance_driven)
+        super().__init__(registration_number, top_speed)
         
-    def accelerate(self, change: int = 0) -> int:
+    def accelerate(self, change: int) -> int:
         return super().accelerate(change)
     
-    def drive(self, time: float = 0) -> int:
+    def drive(self, time: float) -> int:
         return super().drive(time)

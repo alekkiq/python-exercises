@@ -2,7 +2,7 @@ import random
 from tabulate import tabulate
 
 class Race:
-    def __init__(self, name: str = "Race", length: float = 10, cars: list = [...]):
+    def __init__(self, name: str, length: int, cars: list):
         self.name = name
         self.length = length
         self.cars = cars
@@ -24,10 +24,10 @@ class Race:
             car.accelerate(random.randint(-10, 15))
             car.drive(1) # 1 -> 1 hour
 
-    def race_over(self) -> dict:
+    def race_over(self):
         sorted_cars = sorted(list(self.cars), key=lambda car: car.distance_driven, reverse=True)
         
         for car in sorted_cars:
             if car.distance_driven >= self.length:
-                return {"state": True, "winning_car": car.registration_number}
-        return {"state": False}
+                return car.registration_number
+        return False

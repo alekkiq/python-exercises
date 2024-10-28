@@ -22,18 +22,16 @@ def releases_main():
 
 
 # 2
-def cars_main(randomized_speeds: bool = False):
+def cars_main():
     print("\n")
     cars = [
-        Electric("ABC-15", 180, 0, 52.5),
-        Combustion("ACD-123", 180, 0, 32.3)
+        Electric("ABC-15", 180, 52.5),
+        Combustion("ACD-123", 180, 32.3)
     ]
     
     for car in cars:
-        if randomized_speeds:
-            car.accelerate(random.randint(-30, 30)) # for some variety
+        car.accelerate(random.randint(100, 150))
         car.drive(3)
-        print(f"Car {car.registration_number} distance driven after at {car.speed} km/h for 1 hour: {car.distance_driven}")
+        print(f"Car {car.registration_number} distance driven after at {car.speed} km/h for 3 hours: {car.distance_driven}")
         
-#   cars_main(False)
-#   cars_main(True)
+cars_main()

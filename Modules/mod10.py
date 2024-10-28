@@ -17,6 +17,10 @@ def elevator_main():
     # loop for just moving around with elevators
     while moves_before_alarm >= 0:
         chosen_elevator_number = int(input(f"The house has {building.elevator_count} elevators. Which one to use: "))
+        
+        if chosen_elevator_number > building.elevator_count or chosen_elevator_number <= 0:
+            print("Elevator not found. Try a different value.")
+            continue
 
         chosen_elevator = building.elevators[chosen_elevator_number - 1]
 
@@ -37,16 +41,16 @@ def elevator_main():
 
     print("There was a fire alarm. All elevators moved to the bottom floor. Everyone must leave the building immediately!")
 
-#   elevator_main()
+# elevator_main()
 
 # 4
 def race_main():
     cars = []
     
     for i in range(1, 11): # create 10 cars 1-10
-        speed = random.randint(100, 200)
+        top_speed = random.randint(100, 200)
         registration = f"{''.join(random.choice(string.ascii_letters).upper() for _ in range(3))}-{random.randint(1, 9)}"
-        car = Car(registration, speed)
+        car = Car(registration, top_speed)
         car.accelerate(random.randint(-10, 15)) # set the cars initial speed
         cars.append(car)
             
@@ -58,7 +62,7 @@ def race_main():
     # track the hours driven
     hours_driven = 0
 
-    while not race.race_over()["state"]:
+    while not race.race_over():
         race.hour_passes()
         hours_driven += 1
         
@@ -66,8 +70,8 @@ def race_main():
             print(f"\nStatistics after {hours_driven} hours driven:\n")
             race.get_race_state()
         
-    print(f"\nThe race is over after {hours_driven} hours driven. Car {race.race_over()["winning_car"]} has won!")
+    print(f"\nThe race is over after {hours_driven} hours driven. Car {race.race_over()} has won!")
     print(f"\nThe final standings:\n")
     race.get_race_state(sort=True)
     
-#   race_main()
+# race_main()
