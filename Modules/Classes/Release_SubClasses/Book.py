@@ -1,7 +1,7 @@
 from Classes.Release import Release
 
 class Book(Release):
-    def __init__(self, name: str = "", author: str = "", pages: int = 0):
+    def __init__(self, name: str, author: str, pages: int = 0):
         self.author = author
         self.pages = pages
         super().__init__(name)
