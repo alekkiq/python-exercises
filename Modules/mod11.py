@@ -26,7 +26,7 @@ def cars_main():
     print("\n")
     cars = [
         Electric("ABC-15", 180, 52.5),
-        Combustion("ACD-123", 180, 32.3)
+        Combustion("ACD-123", 165, 32.3)
     ]
     
     for car in cars:
