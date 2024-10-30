@@ -1,7 +1,7 @@
 from Classes.Release import Release
 
 class Paper(Release):
-    def __init__(self, name: str = "", chief_reporter: str = ""):
+    def __init__(self, name: str, chief_reporter: str):
         self.chief_reporter = chief_reporter
         super().__init__(name)
     
