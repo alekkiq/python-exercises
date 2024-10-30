@@ -32,6 +32,6 @@ def cars_main():
     for car in cars:
         car.accelerate(random.randint(100, 150))
         car.drive(3)
-        print(f"Car {car.registration_number} distance driven after at {car.speed} km/h for 3 hours: {car.distance_driven}")
+        print(f"Car {car.registration_number} distance driven after 3 hours: {car.distance_driven}")
         
 cars_main()
