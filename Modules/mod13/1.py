@@ -3,22 +3,23 @@ import json
 
 app = Flask(__name__)
 
-@app.route('/prime_number/<number>')
-def prime_number(number: int | str = 1) -> dict:
-    number = int(number)
+@app.route('/prime-number/<number>')
+def prime_number(number: int | str = 1):
+    try:
+        number = int(number)
 
-    is_prime = number > 1 and all(number % i for i in range(2, int(number ** 0.5) + 1))
+        is_prime = number > 1 and all(number % i for i in range(2, int(number ** 0.5) + 1))
 
-    return jsonify({"number": number, "isPrime": is_prime})
+        return {"number": number, "isPrime": is_prime}, 200
+    except ValueError:
+        return {"error": "Invalid number"}, 400
 
 # 404 handler
 @app.errorhandler(404)
-def page_not_found(status_code):
-    response = {
+def not_found(status_code):
+    return {
         "status": 404,
         "message": "Invalid endpoint"
-    }
-    
-    return jsonify(response), 404
+    }, 404
 
 app.run(use_reloader=True, host="localhost", port=3000)

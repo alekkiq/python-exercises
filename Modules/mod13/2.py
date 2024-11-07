@@ -1,37 +1,39 @@
 from flask import Flask, request, Response
 import mysql.connector
+import json
 
 app = Flask(__name__)
 
-@app.route('/airports/<icao>')
+db = mysql.connector.connect(
+    host = "localhost",
+    user = "root",
+    password = "password",
+    database = "flight_game",
+    collation = "utf8mb4_unicode_ci"
+)
+
+@app.route("/airports/<icao>")
 def get_airport_by_icao(icao: str):
     try: 
-        db = mysql.connector.connect(
-            host = "localhost",
-            user = "root",
-            password = "password",
-            database = "flight_game",
-            collation = "utf8mb4_unicode_ci"
-        )
-        
         cursor = db.cursor(dictionary=True)
         sql_query = "SELECT ident, name, municipality FROM airport WHERE ident=%s"
         
         cursor.execute(sql_query, (icao,))
         data = cursor.fetchone()
         
-        return data if data else {"message": "No data found"}
+        if not data:
+            raise Exception("Airport not found")
+        
+        return data
     except Exception as error:
-        return error
+        return {"error": str(error)}, 404
     
 # 404 handler
 @app.errorhandler(404)
-def page_not_found(status_code):
-    response = {
+def page_not_found(message):
+    return {
         "status": 404,
         "message": "Invalid endpoint"
-    }
-    
-    return response
+    }, 404
 
 app.run(use_reloader=True, host="localhost", port=3000)
