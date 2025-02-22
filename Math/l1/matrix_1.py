@@ -1,6 +1,13 @@
 from sympy import solve, symbols
 import numpy as np
 
+# 5.1.1
+# 2.
+# Muodosta 3x3 matriisi A = [aij], jossa aij = i - j
+print("5.1.1")
+A = np.array([[i - j for j in range(3)] for i in range(3)])
+print(A)
+
 # 8.1.1
 print('8.1.1')
 
